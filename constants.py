@@ -1,0 +1,2 @@
+HOTIZONTAL_LINE = '-'
+VERTICAL_LINE = '|'
