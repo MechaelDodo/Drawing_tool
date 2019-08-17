@@ -50,16 +50,34 @@ class Line(Drawing):
             file.write(result)
 
 
-class Rectangle(Drawing):    pass
+class Rectangle(Drawing):
+    def paint(self):
+        x1, y1, x2, y2 = self.coordinates
+        if x1 > x2:
+            x1, x2 = x2, x1
+        if y1 > y2:
+            y1, y2 = y2, y1
+        crd1, crd2, crd3, crd4 = (x1, y1), (x2, y1), (x1, y2), (x2, y2)
+        line = Line()
+        for args in (crd1, crd2), (crd2, crd4), (crd4, crd3), (crd3, crd1):
+            argsArray = []
+            for setArgs in args:
+                for i in setArgs:
+                    argsArray.append(i)
+            argsArray = tuple(argsArray)
+            line.__init__(*argsArray)
+            line.paint()
 
 
 class Bucket(Drawing):    pass
 
 
 if __name__ == '__main__':
-    c = Canvas(20, 4)
+    c = Canvas(20, 20)
     c.paint()
     l = Line(6, 2, 2, 2)
     l.paint()
-    l2 = Line(2,2,2,4)
+    l2 = Line(2, 2, 2, 4)
     l2.paint()
+    r = Rectangle(20, 1, 17, 3)
+    r.paint()
