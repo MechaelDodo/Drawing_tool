@@ -1,22 +1,22 @@
-----------------------
-|                xxxx|
-| xxxxx          x  x|
-| x              xxxx|
-| x                  |
-|                    |
-|                    |
-|                    |
-|                    |
-|                    |
-|                    |
-|                    |
-|                    |
-|                    |
-|                    |
-|                    |
-|                    |
-|                    |
-|                    |
-|                    |
-|                    |
-----------------------
+--------------------------------
+|cccccccccccccccxxxxxcccccccccc|
+|xxxxxxcccccccccx   xcccccccccc|
+|cccccxcccccccccxxxxxcccccccccc|
+|cccccxcccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+--------------------------------

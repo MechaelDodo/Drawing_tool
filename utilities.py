@@ -35,8 +35,6 @@ class Line(Drawing):
             for offset, line in enumerate(file):
                 lineList = list(line)
                 if horizonFlag and offset == y1:
-                    if x1 > x2:
-                        x1, x2 = x2, x1
                     for i in range(x1, x2+1):
                         lineList[i] = CHARACTER_X
                 elif not horizonFlag and offset in range(y1, y2+1):
@@ -69,15 +67,66 @@ class Rectangle(Drawing):
             line.paint()
 
 
-class Bucket(Drawing):    pass
+class BucketFill(Drawing):
+    def paint(self):
+        x, y, color = self.coordinates
+        root = []
+        result = []
+        countWash = 1
+        with (open('output.txt')) as file:
+            for offset, line in enumerate(file):
+                lineList = list(line)
+                if offset == y:
+                    character = lineList[x]
+                root.append(lineList)
+        with (open('output.txt')) as file:
+            lengthMatrix = len(file.read())
+        def wash(xi, yi):
+            nonlocal root, x, y, countWash
+            if root[yi][xi] == character:
+                root[yi][xi] = color
+                wash(xi, yi)
+            elif root[yi][xi-1] == character:
+                wash(xi-1, yi)
+            elif root[yi][xi+1] == character:
+                wash(xi+1, yi)
+            elif root[yi-1][xi] == character:
+                wash(xi, yi-1)
+            elif root[yi+1][xi] == character:
+                wash(xi, yi+1)
+            else:
+                if countWash > 4:
+                    return
+                else:
+                    countWash += 1
+                    wash(x,y)
+        wash(x,y)
+        for row, line in enumerate(root):
+            for column, i in enumerate(line):
+                if i == color and (root[row][column+1] == character
+                                       or root[row][column-1] == character
+                                       or root[row+1][column+1] == character
+                                       or root[row-1][column+1] == character):
+                    wash(column, row)                   
+        for i in root:
+            i = ''.join(i)
+            result.append(i)
+        result = ''.join(result)
+        with (open('output.txt', 'w')) as file:
+            file.write(result)
+
+
 
 
 if __name__ == '__main__':
-    c = Canvas(20, 20)
+    c = Canvas(30, 20)
     c.paint()
-    l = Line(6, 2, 2, 2)
+    l = Line(1, 2, 6, 2)
     l.paint()
-    l2 = Line(2, 2, 2, 4)
+    l2 = Line(6, 3, 6, 4)
     l2.paint()
-    r = Rectangle(20, 1, 17, 3)
+    r = Rectangle(16, 1, 20, 3)
     r.paint()
+    b = BucketFill(10, 3, 'c')
+    b.paint()
+    
