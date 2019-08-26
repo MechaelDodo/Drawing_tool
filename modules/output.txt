@@ -1,0 +1,22 @@
+-------------------------------
+|cccccccccccccccxxxxxcccccccccc|
+|xxxxxxcccccccccx   xcccccccccc|
+|cccccxcccccccccxxxxxcccccccccc|
+|cccccxcccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+|cccccccccccccccccccccccccccccc|
+-------------------------------

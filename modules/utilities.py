@@ -1,18 +1,21 @@
 from abc import ABCMeta, abstractmethod
 from .constants import *
 
+
 class Drawing(metaclass=ABCMeta):
     def __init__(self, *args):
         self.coordinates = args
 
     @abstractmethod
-    def paint(self):    pass
+    def paint(self):
+        pass
 
 
 class Canvas(Drawing):
     def paint(self):
         width, height = self.coordinates
-        topBotLine = HORIZONTAL_LINE+HORIZONTAL_LINE * width+HORIZONTAL_LINE+'\n'
+        horWidth = HORIZONTAL_LINE * width
+        topBotLine = HORIZONTAL_LINE+horWidth+'\n'
         space = ' ' * width
         with (open('output.txt', 'w')) as file:
             file.write(topBotLine)
@@ -39,7 +42,7 @@ class Line(Drawing):
                         lineList[i] = CHARACTER_X
                 elif not horizonFlag and offset in range(y1, y2+1):
                     lineList[x1] = CHARACTER_X
-                root.append(lineList)     
+                root.append(lineList)
         for i in root:
             i = ''.join(i)
             result.append(i)
@@ -81,6 +84,7 @@ class BucketFill(Drawing):
                 root.append(lineList)
         with (open('output.txt')) as file:
             lengthMatrix = len(file.read())
+
         def wash(xi, yi):
             nonlocal root, x, y, countWash
             if root[yi][xi] == character:
@@ -99,23 +103,21 @@ class BucketFill(Drawing):
                     return
                 else:
                     countWash += 1
-                    wash(x,y)
-        wash(x,y)
+                    wash(x, y)
+        wash(x, y)
         for row, line in enumerate(root):
             for column, i in enumerate(line):
-                if i == color and (root[row][column+1] == character
-                                       or root[row][column-1] == character
-                                       or root[row+1][column+1] == character
-                                       or root[row-1][column+1] == character):
-                    wash(column, row)                   
+                if i == color and (root[row][column+1] == character or
+                                   root[row][column-1] == character or
+                                   root[row+1][column+1] == character or
+                                   root[row-1][column+1] == character):
+                    wash(column, row)
         for i in root:
             i = ''.join(i)
             result.append(i)
         result = ''.join(result)
         with (open('output.txt', 'w')) as file:
             file.write(result)
-
-
 
 
 if __name__ == '__main__':
@@ -129,4 +131,3 @@ if __name__ == '__main__':
     r.paint()
     b = BucketFill(10, 3, 'c')
     b.paint()
-    
