@@ -1,5 +1,5 @@
 from abc import ABCMeta, abstractmethod
-from constants import *
+from .constants import *
 
 class Drawing(metaclass=ABCMeta):
     def __init__(self, *args):
